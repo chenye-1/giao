@@ -8,10 +8,26 @@ $.ajaxPrefilter(function (option) {
     }
 
     option.complete = function (res) {
-        console.log(res);
-        if (res.responseJSON.status == 1){
+        if (res.responseJSON.status == 1) {
             localStorage.removeItem('token')
-            location.href='/login.html'
+            location.href = '/login.html'
         }
     }
+
+    // again
+    // option.url = "http://ajax.frontend.itheima.net" + option.url;
+    // if (option.url.includes('/my/')) {
+    //     option.headers = {
+    //         Authorization: localStorage.getItem('token') || ''
+    //     }
+    // }
+    // option.complete = function (res) {
+    //     if (res.responseJSON.status == 1 && res.responseJSON.message === '身份认证失败！') {
+
+    //         localStorage.removeItem('token')
+
+    //         location.href = '/login.html'
+
+    //     }
+    // }
 })

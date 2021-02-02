@@ -56,5 +56,50 @@ $(function () {
         })
     })
 
+
+
+    // again
+    // $('#link_reg').on('click', function () {
+    //     $('.regbox').show(),
+    //         $(".loginbox").hide()
+    // })
+    // $('#go-login').on('click', function () {
+    //     $('.loginbox').show(),
+    //         $(".regbox").hide()
+    // })
+
+    // // 注册
+    // $('#regForm').on('submit', function (e) {
+    //     e.preventDefault()
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/api/reguser',
+    //         data: {
+    //             username: $('#regForm [name=username]').val(),
+    //             password: $('#regForm [name=password]').val()
+    //         },
+    //         success(res) {
+    //             if (res.status !== 0) return layui.layer.msg('注册失败')
+    //             layui.layer.msg('注册成功')
+    //         }
+    //     })
+    // })
+
+    // // 登录
+    // $('#loginform').on('submit', function (e) {
+    //     e.preventDefault()
+    //     $.ajax({
+    //         type: 'post',
+    //         url: '/api/login',
+    //         data: $(this).serialize(),
+    //         success(res) {
+    //             console.log(res);
+    //             if (res.status !== 0) return layui.layer.msg('登录失败')
+    //             localStorage.setItem('token', res.token)
+    //             location.href = '/index.html'
+    //         }
+
+    //     })
+    // })
 })
 
