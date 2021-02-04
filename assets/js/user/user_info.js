@@ -44,41 +44,73 @@ $(function () {
 
 
 
+    // // again
+    // function initUserInfo() {
+    //     $.ajax({
+    //         type: 'get',
+    //         url: '/my/userinfo',
+    //         success: function (res) {
+    //             $('.layui-form [name=id]').val(res.data.id)
+    //             $('.layui-form [name=username]').val(res.data.username)
+    //             $('.layui-form [name=nickname]').val(res.data.nickname || res.data.username)
+    //             $('.layui-form [name=email]').val(res.data.email)
+    //             // layui.form.val('formUserInfo', res.data)
+    //         }
+    //     })
+    // }
+    // initUserInfo()
+
+    // // 重置
+    // $('.layui-form').on('reset', function (e) {
+    //     e.preventDefault()
+    //     initUserInfo()
+    // })
+
+    // // 修改提交
+    // $('.layui-form').on('submit', function (e) {
+    //     e.preventDefault()
+    //     $.ajax({
+    //         type: 'post',
+    //         url: '/my/userinfo',
+    //         data: $(this).serialize(),
+    //         success: function (res) {
+    //             if (res.status !== 0) return layui.layer.msg('更新用户信息失败')
+    //             layui.layer.msg('更新用户信息成功')
+    //             window.parent.getUserInfo()
+
+    //         }
+    //     })
+    // })
+
     // again
     function initUserInfo() {
         $.ajax({
             type: 'get',
             url: '/my/userinfo',
             success: function (res) {
-                $('.layui-form [name=id]').val(res.data.id)
-                $('.layui-form [name=username]').val(res.data.username)
-                $('.layui-form [name=nickname]').val(res.data.nickname || res.data.username)
-                $('.layui-form [name=email]').val(res.data.email)
-                // layui.form.val('formUserInfo', res.data)
+                layui.form.val('formUserInfo', res.data)
             }
         })
     }
     initUserInfo()
 
-    // 重置
-    $('.layui-form').on('reset', function (e) {
-        e.preventDefault()
+    //重置
+    $('#btn_reset').on('click', function () {
         initUserInfo()
     })
-
-    // 修改提交
+    // 修改信息
     $('.layui-form').on('submit', function (e) {
         e.preventDefault()
         $.ajax({
-            type: 'post',
+            method: 'post',
             url: '/my/userinfo',
             data: $(this).serialize(),
-            success: function (res) {
+            success(res) {
                 if (res.status !== 0) return layui.layer.msg('更新用户信息失败')
                 layui.layer.msg('更新用户信息成功')
                 window.parent.getUserInfo()
-                
             }
         })
     })
+
 })
